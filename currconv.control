@@ -1,0 +1,6 @@
+# currconv extension
+comment = 'currency converter with online updates'
+default_version = '1.0'
+module_pathname = '$libdir/currconv'
+relocatable = true
+trusted = true
