@@ -2,14 +2,23 @@ package main
 
 import (
 	"C"
+	"fmt"
 	"net/http"
 	"unsafe"
 )
 
 //export GetBody
-func GetBody(api_body *C.char) {
+func GetBody(api_body *C.char, currency *C.char) {
+
 	var body string
-	resp, _ := http.Get("https://v6.exchangerate-api.com/v6/831604053925ff6a3be209cc/latest/RUB")
+	curr := C.GoString(currency)
+
+	url := fmt.Sprintf("https://v6.exchangerate-api.com/v6/831604053925ff6a3be209cc/latest/%s", curr)
+
+	resp, err := http.Get(url)
+	if err != nil {
+		body = err.Error()
+	}
 	defer resp.Body.Close()
 	for {
 		bs := make([]byte, 4096)

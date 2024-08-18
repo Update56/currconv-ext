@@ -6,7 +6,6 @@
 #line 1 "cgo-builtin-export-prolog"
 
 #include <stddef.h>
-#include <stddef.h>
 
 #ifndef GO_CGO_EXPORT_PROLOGUE_H
 #define GO_CGO_EXPORT_PROLOGUE_H
@@ -42,7 +41,6 @@ typedef unsigned long long GoUint64;
 typedef GoInt64 GoInt;
 typedef GoUint64 GoUint;
 typedef size_t GoUintptr;
-typedef size_t GoUintptr;
 typedef float GoFloat32;
 typedef double GoFloat64;
 #ifdef _MSC_VER
@@ -50,14 +48,8 @@ typedef double GoFloat64;
 typedef _Fcomplex GoComplex64;
 typedef _Dcomplex GoComplex128;
 #else
-#ifdef _MSC_VER
-#include <complex.h>
-typedef _Fcomplex GoComplex64;
-typedef _Dcomplex GoComplex128;
-#else
 typedef float _Complex GoComplex64;
 typedef double _Complex GoComplex128;
-#endif
 #endif
 
 /*
@@ -82,7 +74,7 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern __declspec(dllexport) char* GetBody(char* currency);
+extern void GetBody(char* api_body, char* currency);
 
 #ifdef __cplusplus
 }
