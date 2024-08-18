@@ -9,7 +9,6 @@ PG_FUNCTION_INFO_V1(currency_convert);
 
 Datum
 currency_convert(PG_FUNCTION_ARGS)
-currency_convert(PG_FUNCTION_ARGS)
 {
    text     currency = PG_GETARG_TEXT(0);
    float4   input_currency = PG_GETARG_FLOAT4(0);
