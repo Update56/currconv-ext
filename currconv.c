@@ -1,7 +1,3 @@
-/*
- * contrib/currconv/currconv.c
- */
-
 #include "postgres.h"
 #include "fmgr.h"
 #include "utils/builtins.h"
@@ -19,7 +15,7 @@ convert_from_rub(PG_FUNCTION_ARGS)
    float    rates[3];
 
    void *handle;
-   handle = dlopen ("./libgetconv.so", RTLD_NOW | RTLD_GLOBAL);
+   handle = dlopen ("/home/up56/currconv-ext/libgetconv.so", RTLD_NOW | RTLD_GLOBAL);
    if (!handle) {
       fputs (dlerror(), stderr);
       exit(1);
