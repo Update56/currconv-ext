@@ -1,4 +1,4 @@
-# contrib/currconv/Makefile
+# /currconv/Makefile
 
 MODULES = currconv
 
