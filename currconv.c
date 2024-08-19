@@ -24,8 +24,8 @@ currency_convert(PG_FUNCTION_ARGS)
    char     floatchar [32]; //в.м. с числом в виде набора символов
    char     char_res [32]; //в.м. для вывода в виде текста
 
-   //открываем библиотеку
-   handle = dlopen ("/home/up56/currconv-ext/libgetconv.so", RTLD_NOW | RTLD_GLOBAL);
+   //открываем библиотеку, по пути полученому из переменной окружения
+   handle = dlopen (strcat(getenv("LD_LIBRARY_PATH"), "/postgresql/libgetconv.so"), RTLD_NOW | RTLD_GLOBAL);
    if (!handle) {
       fputs (dlerror(), stderr);
       exit(1);
